@@ -1,4 +1,3 @@
-package april.File_Handling.FILE;
 import java.io.File;
 import java.io.IOException;
 
@@ -33,5 +32,6 @@ public class Main {
         // System.out.println(file.getAbsolutePath());
         // System.out.println(file.length());
         // file.delete();
+        
     }
 }

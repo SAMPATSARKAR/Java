@@ -7,7 +7,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 class Main {
     public static void main(String args[] ) throws IOException{
-        File file = new File("input.txt");
+        // File file = new File("input.txt");
         // if(file.exists()){
         //     System.out.println("File exists");
         // }else {
@@ -19,7 +19,7 @@ class Main {
         //     System.out.println("File already exist");
         // }
         // file.createNewFile();
-        FileReader fr = new FileReader("input.txt");
+        // FileReader fr = new FileReader("input.txt");
         // int input=fr.read();
         // System.out.println(input);
         // while((input = fr.read()) != -1){
@@ -34,8 +34,9 @@ class Main {
         //     fw.write(input);//dont need to type cast into char
         // }
         // fw.close();
+        // fr.close();
 
-        //fileInputStream- for binary(not special char)--can be used to copy audio,img
+        //fileInputStream/Fileoutputstream- for binary(not special char)--can be used to copy audio,img
         // FileInputStream fis = new FileInputStream("image.png");
         // FileOutputStream fos = new FileOutputStream("output.jpg", true);
         // int inp;
@@ -43,11 +44,22 @@ class Main {
         //     fos.write(inp);//dont need to type cast into char
         // }
         //scanner
-        Scanner sc = new Scanner(new File("input.txt"));
-        String str = sc.nextLine();
-        System.out.print(str);
+        // Scanner sc = new Scanner(new File("input.txt"));
+        // String str = sc.nextLine();
+        // System.out.print(str);
 
-        //Buffer Reader
+        //try catch resource methods
+        try(FileReader fr = new FileReader("input.txt");
+            FileWriter fw = new FileWriter("output.txt", true);    
+        ){
+            int inp;
+            while((inp = fr.read()) != -1){
+                fw.write(inp);
+            }
+            
+        }catch(IOException e){
+            System.out.println(e.getMessage());
+        }
 
 
     }
